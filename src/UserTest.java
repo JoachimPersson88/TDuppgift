@@ -7,8 +7,8 @@ public class UserTest {
     public void createUser() {
         User user = new User("username", "password");
         assertNotNull(user);
-        assertEquals("username", user.getUsername());
-        assertEquals("password", user.getPassword());
+        assertEquals("username", user.username());
+        assertEquals("password", user.password());
     }
     @Test
     public void testEqualsMethod() {
@@ -16,8 +16,8 @@ public class UserTest {
         User user2 = new User("username", "password2");
         User user3 = new User("username2", "password1");
 
-        assertTrue(user1.equals(user2));
-        assertFalse(user1.equals(user3));
+        assertEquals(user1, user2);
+        assertNotEquals(user1, user3);
     }
 
 }
