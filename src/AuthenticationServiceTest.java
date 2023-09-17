@@ -19,7 +19,7 @@ public class AuthenticationServiceTest {
         UserRepository mockRepo = Mockito.mock(UserRepository.class);
         when(mockRepo.findUserByUsername("username")).thenReturn(new User("username", "correctPassword"));
         AuthenticationService service = new AuthenticationService(mockRepo);
-        assertThrows(AuthenticationException.class, () -> service.authenticate("username", "wrongPassword"));
+            assertThrows(AuthenticationException.class, () -> service.authenticate("username", "wrongPassword"));
     }
 
     @Test

@@ -8,9 +8,10 @@ public class AuthenticationService {
 
     public boolean authenticate(String username, String password) {
         User user = repo.findUserByUsername(username);
-        if(user != null && user.getPassword().equals(password)) {
+        if(user != null && user.password().equals(password)) {
             return true;
         }
-        return false;
+        throw new AuthenticationException("Invalid username or password.");
     }
+
 }
